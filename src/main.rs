@@ -1,22 +1,41 @@
-use clap::{App, AppSettings, Parser};
 
-#[derive(Parser)]
-struct Args {
-    #[clap(long)]
-    search_type: String,
 
-    #[clap(parse(from_os_str))]
-    path: std::path::PathBuf,
-}
+use trick_sys::find::AppBuilder;
 
 fn main() {
-    let _app = App::new("tricksys-find")
-        .author("Adam Pelc, adam.pelc.su@gmail.com")
-        .version("0.1.0")
-        .about("Versatile system utility designed to: search for files or search the contents of files in a simple and intuitive way.")
-        .bin_name("tricksys-find")
-        .setting(AppSettings::SubcommandRequired)
-        .subcommand(App::new("file").about("Search type: is looking for single file"))
-        .subcommand(App::new("files").about("Search type: is looking for multiple files"))
-        .subcommand(App::new("content").about("Search type: is looking for some content is file(s)"));
+
+    let _app_builder = AppBuilder.build();
+
+
+    // let _app = Command::new("tricksys-find")
+    //     .author("Adam Pelc, adam.pelc.su@gmail.com")
+    //     .version("0.1.0")
+    //     .about("Versatile system utility designed to: search for files or search the contents of files in a simple and intuitive way.")
+    //     .bin_name("tricksys-find")
+    //     .arg(
+    //         Arg::new("files")
+    //             .short('f')
+    //             .long("files")
+    //             .takes_value(true)
+    //             .multiple_values(true)
+    //             .conflicts_with("content")
+    //     )
+    //     .arg(
+    //         Arg::new("content")
+    //             .short('c')
+    //             .long("content")
+    //             .takes_value(true)
+    //             .multiple_values(true)
+    //             .conflicts_with("files")
+    //     )
+    //     .arg(
+    //         Arg::new("in")
+    //             .short('i')
+    //             .long("in")
+    //             .takes_value(true)
+    //             .multiple_values(true)
+    //     );
+
+        // AppBuilder app_builder.default_cli();
+        // app_builder.build();
 }
