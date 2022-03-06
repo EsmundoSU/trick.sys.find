@@ -1,10 +1,14 @@
-pub mod trick_sys;
-
-use trick_sys::find::app_builder::{AppBuilder};
+use log;
+use simple_logger::SimpleLogger;
+use clap::{Parser};
+use tricksys_find::app::args::Args;
 
 fn main() {
-    let app_builder = AppBuilder::new("tricksys-find");
-    let app = app_builder.build();
+    // Logger
+    SimpleLogger::new().init().unwrap();
+    log::trace!("App started");
 
-    app.run();
+    // Parse args
+    let _args = Args::parse();
+
 }
